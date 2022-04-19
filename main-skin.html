@@ -70,7 +70,19 @@ DEALINGS IN THE SOFTWARE.
           margin-top: 52px;
       }
     }
-    
+
+    #ContactForm1_contact-form-name {
+       width: 200px;
+    }
+  
+    #ContactForm1_contact-form-email {
+       width: 200px; 
+    }
+  
+    #ContactForm1_contact {
+       width: 200px;
+    }    
+
     .wikipedia-icon {
        color: white;filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%) contrast(80%);
     }
@@ -93,6 +105,17 @@ DEALINGS IN THE SOFTWARE.
         color: white;
         font-family: sans-serif;
         z-index: 1000;
+    }
+
+    .cm-logo {
+        display: block;
+        margin: auto;
+    }
+
+    @media only screen and (max-width: 500px) {
+        .cm-logo {
+  			height: 30px;
+        }
     }
 
     /* Style the tab */
@@ -129,16 +152,40 @@ DEALINGS IN THE SOFTWARE.
         color: white;
         background-color: black;
     }
+
+    /* Handle nice printing on the page */
+    @media print {
+        .cm-fixed-header { 
+            display: none; 
+        }
+
+        .sidebar-container {
+            display: none;
+        }
+  
+        header {
+            display: none;
+        }
+
+        footer {
+            display: none;
+        }
+  
+        #bmc-wbtn {
+            display: none;
+            visibility: hidden;
+        }
+    }        
 </style>
 
 <div class="cm-fixed-header">
-    <div class="cm-tab">
+    <div id="divScrollableTabs" class="cm-tab">
         <button id="btnGitHub" class="cm-tablinks" onclick="openTab('GitHub')"><img style="width: 25px; height: 25px;" src="https://code.codemelted.dev/website-nav/images/github-icon.png" /><br/>GitHub</button>
         <button id="btnInstagram" class="cm-tablinks" onclick="openTab('Instagram')"><img style="width: 25px; height: 25px;" src="https://code.codemelted.dev/website-nav/images/instagram-icon.png" /><br />Instagram</button>
         <button id="btnTwitter" class="cm-tablinks" onclick="openTab('Twitter')"><img style="width: 25px; height: 25px;" src="https://code.codemelted.dev/website-nav/images/twitter-icon.png" /><br />Twitter</button>
-        <button id="btnYouTube" class="cm-tablinks" onclick="openTab('YouTube')"><img style="width: 25px; height: 25px;" src="https://code.codemelted.dev/website-nav/images/youtube-icon.png" /><br />YouTube</button>
+        <button id="btnYouTube" class="cm-tablinks" onclick="openTab('YouTube')"><img style="width: 35px; height: 25px;" src="https://code.codemelted.dev/website-nav/images/youtube-icon.png" /><br />YouTube</button>
     </div>
-    <img alt='logo' style='max-width: 100%; height: 50px;' src='https://code.codemelted.dev/website-nav/images/logo-242x48.png'/>
+    <img alt='logo' class="cm-logo" src='https://code.codemelted.dev/website-nav/images/logo-242x48.png'/>
 </div>
 
 <script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CodeMelted" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF" data-position="Right" data-x_margin="30" data-y_margin="30"></script>
@@ -160,10 +207,12 @@ DEALINGS IN THE SOFTWARE.
 
     // Go determine our active tab button
     window.addEventListener("load", () => {
+        let divScrollableTabs = document.getElementById("divScrollableTabs");
         let href = window.location.href;
         for (const [key, value] of Object.entries(URL_PAGE)) {
             if (href.toLowerCase().includes(key.toLowerCase())) {
                 document.getElementById(`btn${key}`).classList.add("active");
+                divScrollableTabs.scrollLeft += 200;
             }  
         }
     });
