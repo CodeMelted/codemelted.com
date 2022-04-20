@@ -209,11 +209,14 @@ DEALINGS IN THE SOFTWARE.
     window.addEventListener("load", () => {
         let divScrollableTabs = document.getElementById("divScrollableTabs");
         let href = window.location.href;
+        let scrollLeft = 0;
         for (const [key, value] of Object.entries(URL_PAGE)) {
             if (href.toLowerCase().includes(key.toLowerCase())) {
                 document.getElementById(`btn${key}`).classList.add("active");
-                divScrollableTabs.scrollLeft += 200;
+                divScrollableTabs.scrollLeft = scrollLeft;
+                break;
             }  
+            scrollLeft += 50;
         }
     });
 </script>
