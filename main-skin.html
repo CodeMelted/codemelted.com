@@ -63,12 +63,18 @@ DEALINGS IN THE SOFTWARE.
 
     body {
         margin-top: 52px;
+        margin-bottom: 55px;
     }
 
     @media only screen and (max-width: 1439px) {
       .sidebar-container {
           margin-top: 52px;
+          margin-bottom: 55px;
       }
+    }
+
+    .sidebar_bottom {
+  		margin-bottom: 55px;
     }
 
     #ContactForm1_contact-form-name {
@@ -153,9 +159,46 @@ DEALINGS IN THE SOFTWARE.
         background-color: black;
     }
 
+    .cm-fixed-footer {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        z-index: 1001;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        border-top: 2px solid black;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;        
+        background-color: darkslategray;
+        color: white;
+        text-align: center;
+        font-size: x-small;
+        font-weight: bold;
+    }
+
+    .cm-fixed-footer button {
+        background-color: darkslategray;
+        color: white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        font-size: x-small;
+        font-weight: bold;
+    }
+
+    .cm-fixed-footer button:hover {
+        color: white;
+        background-color: black;
+    }
+
     /* Handle nice printing on the page */
     @media print {
         .cm-fixed-header {
+            display: none;
+        }
+
+        .cm-fixed-footer {
             display: none;
         }
 
@@ -170,33 +213,35 @@ DEALINGS IN THE SOFTWARE.
         footer {
             display: none;
         }
-
-        #bmc-wbtn {
-            display: none;
-            visibility: hidden;
-        }
     }
 </style>
 
 <div class="cm-fixed-header">
     <div id="divScrollableTabs" class="cm-tab">
-        <button id="btnGitHub" class="cm-tablinks" onclick="openTab('GitHub')"><img style="width: 25px; height: 25px;" src="https://codemelted.dev/images/icons/github-icon.png" /><br/>GitHub</button>
-        <button id="btnInstagram" class="cm-tablinks" onclick="openTab('Instagram')"><img style="width: 25px; height: 25px;" src="https://codemelted.dev/images/icons/instagram-icon.png" /><br />Instagram</button>
-        <button id="btnTwitter" class="cm-tablinks" onclick="openTab('Twitter')"><img style="width: 25px; height: 25px;" src="https://codemelted.dev/images/icons/twitter-icon.png" /><br />Twitter</button>
-        <button id="btnYouTube" class="cm-tablinks" onclick="openTab('YouTube')"><img style="width: 35px; height: 25px;" src="https://codemelted.dev/images/icons/youtube-icon.png" /><br />YouTube</button>
+        <button id="btnGitHub" class="cm-tablinks" onclick="openTab('GitHub')"><img style="height: 25px;" src="https://codemelted.dev/images/icons/github-icon.png" /><br/>GitHub</button>
+        <button id="btnInstagram" class="cm-tablinks" onclick="openTab('Instagram')"><img style="height: 25px;" src="https://codemelted.dev/images/icons/instagram-icon.png" /><br />Instagram</button>
+        <button id="btnTwitter" class="cm-tablinks" onclick="openTab('Twitter')"><img style="height: 25px;" src="https://codemelted.dev/images/icons/twitter-icon.png" /><br />Twitter</button>
+        <button id="btnYouTube" class="cm-tablinks" onclick="openTab('YouTube')"><img style="height: 25px;" src="https://codemelted.dev/images/icons/youtube-icon.png" /><br />YouTube</button>
     </div>
     <img alt='logo' class="cm-logo" src='https://codemelted.dev/images/logos/logo-242x48.png'/>
 </div>
 
-<script data-name="BMC-Widget" data-cfasync="false" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="CodeMelted" data-description="Support me on Buy me a coffee!" data-message="" data-color="#5F7FFF" data-position="Right" data-x_margin="15" data-y_margin="15"></script>
+<div class="cm-fixed-footer">
+    <button onclick="openTab('Blog')"><img style="height: 35px;" src="https://codemelted.dev/images/icons/icons8-blog-48.png" /><br/>Blog</button>
+    <button onclick="openTab('Code')"><img style="height: 35px;" src="https://codemelted.dev/images/icons/icons8-code-48.png" /><br/>Code Modules</button>
+    <button onclick="openTab('Support')"><img style="height: 35px;" src="https://codemelted.dev/images/icons/bmc-button.png" /><br/>Support My Work</button>
+</div>
 
 <script type="text/javascript">
     // Page navigation
     const URL_PAGE = {
-        "GitHub": "https://www.codemelted.com/p/github.html",
-        "Instagram": "https://www.codemelted.com/p/instagram.html",
-        "Twitter": "https://www.codemelted.com/p/twitter.html",
-        "YouTube": "https://www.codemelted.com/p/youtube.html"
+        "Blog"      : "https://www.codemelted.com",
+        "Code"      : "https://codemelted.dev",
+        "GitHub"    : "https://www.codemelted.com/p/github.html",
+        "Instagram" : "https://www.codemelted.com/p/instagram.html",
+        "Support"   : "https://www.buymeacoffee.com/codemelted",
+        "Twitter"   : "https://www.codemelted.com/p/twitter.html",
+        "YouTube"   : "https://www.codemelted.com/p/youtube.html"
     };
 
     // Change our location on this page based on the tab.
@@ -211,7 +256,9 @@ DEALINGS IN THE SOFTWARE.
         let href = window.location.href;
         let scrollLeft = 0;
         for (const [key, value] of Object.entries(URL_PAGE)) {
-            if (href.toLowerCase().includes(key.toLowerCase())) {
+            if (key === "Code" || key === "Blog" || key === "Support") {
+                continue;
+            } else if (href.toLowerCase().includes(key.toLowerCase())) {
                 document.getElementById(`btn${key}`).classList.add("active");
                 divScrollableTabs.scrollLeft = scrollLeft;
                 break;
