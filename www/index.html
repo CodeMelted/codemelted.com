@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!--
+@file instagram.html
+@author Mark Shaffer (mark.shafferu@codemelted.com)
+@brief Widget from elfsight.com that captures my instagram feed.
+@date 2022-04-18
+
+@copyright Copyright (c) 2022
+MIT License 
+
+Permission is hereby granted, free of charge, to any person obtaining a 
+copy of this software and associated documentation files (the "Software"), 
+to deal in the Software without restriction, including without limitation 
+the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+and/or sell copies of the Software, and to permit persons to whom the 
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in 
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
+DEALINGS IN THE SOFTWARE.
+-->
+<html><head>
+    <title>Melt the Code</title>
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Mark Shaffer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/favicon_io/favicon.ico">
+    <link rel="stylesheet" href="./css/index.css">
+    <!--
+
+    <script defer src="/__/firebase/9.9.0/firebase-app-compat.js"></script>
+    <script defer src="/__/firebase/9.9.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.9.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.9.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.9.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.9.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.9.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.9.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.9.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.9.0/firebase-performance-compat.js"></script>
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    -->    
+    <script src="./js/index.js" defer></script>
+</head><body>
+    <!-- Main fixed header -->
+    <div id="divFixedHeader" class="cm-fixed-header">
+      <div><a href="https://codemelted.com"><img alt="logo" src="./images/logos/logo-242x48.png" /></a></div>
+      <button id="btnSupport"><img style="height: 35px;" src="./images/icons/bmc-button.png" /><br/>Support My Work</button>
+      <button id="btnSearch" style="font-size: x-large;">&#128269;</button>
+  </div>
+
+  <div class="tab">
+      <button class="tabLinks active" onclick="openTab(event, 'Blog')"><img src="./images/icons/icons8-blog-48.png" style="height: 20px;" />&nbsp;Blog</button>
+      <button class="tabLinks" onclick="openTab(event, 'GitHub')"><img src="./images/icons/github-icon.png" style="height: 20px;" />&nbsp;GitHub</button>
+      <button class="tabLinks" onclick="openTab(event, 'Instagram')"><img src="./images/icons/instagram-icon.png" style="height: 20px;" />&nbsp;Instagram</button>
+      <button class="tabLinks" onclick="openTab(event, 'Twitter')"><img src="./images/icons/twitter-icon.png" style="height: 20px;" />&nbsp;Twitter</button>
+      <!-- <button class="tabLinks" onclick="openTab(event, 'GitHub')"><img src="./images/icons/youtube-icon.png" style="height: 20px;" />&nbsp;YouTube</button> -->
+  </div>
+  <iframe id="contentArea" class="content-area" src="https://blog.codemelted.com"></iframe>
+
+  <!-- Main fixed footer -->
+  <div id="divFixedFooter" class="cm-fixed-footer">
+      <button class="tabLinks" onclick="openTab(event, 'Design')"  ><img style="height: 25px;" src="./images/icons/icons8-design-48.png" /><br />Design</button>
+      <button class="tabLinks" onclick="openTab(event, 'Cpp')"  class="tabLinks"><img style="height: 25px;" src="./images/icons/icons8-c++-48.png" /><br />C/C++</button>
+      <button class="tabLinks" onclick="openTab(event, 'Flutter')" class="tabLinks"><img style="height: 25px;" src="./images/icons/icons8-flutter-48.png" /><br />Flutter</button>
+      <button class="tabLinks" onclick="openTab(event, 'Java')" class="tabLinks"><img style="height: 25px;" src="./images/icons/icons8-javascript-48.png" /><br />JavaScript</button>
+      <button class="tabLinks" onclick="openTab(event, 'Js')" class="tabLinks"><img style="height: 25px;" src="./images/icons/icons8-java-48.png" /><br/>Java</button>
+      <button class="tabLinks" onclick="openTab(event, 'Pwsh')"><img style="height: 25px;" src="./images/icons/ps_black_64.png" /><br/>PowerShell</button>
+  </div>
+
+    <!-- <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loadEl = document.querySelector('#load');
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.firestore().doc('/foo/bar').get().then(() => { });
+        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        // firebase.analytics(); // call to activate
+        // firebase.analytics().logEvent('tutorial_completed');
+        // firebase.performance(); // call to activate
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+        try {
+          let app = firebase.app();
+          let features = [
+            'auth', 
+            'database', 
+            'firestore',
+            'functions',
+            'messaging', 
+            'storage', 
+            'analytics', 
+            'remoteConfig',
+            'performance',
+          ].filter(feature => typeof app[feature] === 'function');
+          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script> -->
+</body></html>

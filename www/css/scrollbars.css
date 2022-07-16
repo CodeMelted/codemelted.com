@@ -1,0 +1,26 @@
+/*
+@file Provides the styles for the scrollbars of the https://codemelted.com 
+    domain.
+@license MIT / (c) 2022 Mark Shaffer. All Rights Reserved 
+*/
+
+/* width */
+iframe::-webkit-scrollbar {
+    width: 5px;
+    height: 3px;
+}
+
+/* Track */
+iframe::-webkit-scrollbar-track {
+    background: darkslategray;
+}
+
+/* Handle */
+iframe::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+iframe::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
