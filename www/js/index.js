@@ -27,7 +27,7 @@
 const mainDomain = "https://codemelted.com";
 const blogDomain = "https://blog.codemelted.com";
 const socialDomain = "https://social.codemelted.com";
-const projectsDomain = "https://projects.codemelted.com";
+const projectsDomain = "https://xplat-modules.codemelted.com";
 const tabPages = {
     // Top Tabs
     "Blog"      : `${blogDomain}`,
@@ -35,12 +35,12 @@ const tabPages = {
     "Instagram" : `${socialDomain}/widgets/instagram.html`,
     "Twitter"   : `${socialDomain}/widgets/twitter.html`,
     // Bottom Tabs
-    "Design"    : `${projectsDomain}/xplat-module`,
-    "Cpp"       : `${projectsDomain}/xplat-module/cpp`,
-    "Flutter"   : `${projectsDomain}/xplat-module/flutter`,
-    "Java"      : `${projectsDomain}/xplat-module/java`,
-    "Js"        : `${projectsDomain}/xplat-module/js`,
-    "Pwsh"      : `${projectsDomain}/xplat-module/pwsh`,
+    "Design"    : `${projectsDomain}`,
+    "Cpp"       : `${projectsDomain}/cpp/melt_the_code/docs`,
+    "Flutter"   : `${projectsDomain}/flutter/melt_the_code/docs`,
+    "Java"      : `${projectsDomain}/java/melt_the_code/docs`,
+    "Js"        : `${projectsDomain}/js/melt_the_code/docs`,
+    "Pwsh"      : `${projectsDomain}/pwsh/melt_the_code/docs`,
 };
 
 /**
