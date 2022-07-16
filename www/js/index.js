@@ -52,7 +52,7 @@ function resizeContentArea() {
     const height = window.innerHeight || 
         document.documentElement.clientHeight || 
         document.body.clientHeight;
-    contentArea.style.height = (height - 150) + "px";  
+    contentArea.style.height = (height - 145) + "px";  
 }
 
 /**
@@ -87,10 +87,6 @@ function main() {
     if (href.includes(mainDomain) || href.includes("file://")) {
         addEventListener('resize', (event) => resizeContentArea());
         resizeContentArea();
-        let btnSearch = document.getElementById("btnSearch");
-        btnSearch.addEventListener("click", ()=> {
-            window.alert("Currently Being Implemented");
-        });
         let btnSupport = document.getElementById("btnSupport");
         btnSupport.addEventListener(
             "click", 
